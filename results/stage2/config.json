@@ -1,0 +1,103 @@
+{
+  "protocol_version": 2,
+  "duplicate_timestamp_policy": "nondecreasing timestamps; last row in file order at ties, including across chunks",
+  "recordings": {
+    "ethylene_CO.txt": [
+      "CO",
+      "ethylene"
+    ],
+    "ethylene_methane.txt": [
+      "methane",
+      "ethylene"
+    ]
+  },
+  "sample_interval_seconds": 1,
+  "warmup_seconds": 600,
+  "gap_seconds": 600,
+  "summary_tau_seconds": [
+    5,
+    30,
+    120
+  ],
+  "lag_seconds": {
+    "lags_10s": [
+      0,
+      1,
+      2,
+      5,
+      10
+    ],
+    "lags_30s": [
+      0,
+      1,
+      7,
+      15,
+      30
+    ],
+    "lags_120s": [
+      0,
+      1,
+      30,
+      60,
+      120
+    ]
+  },
+  "alphas": [
+    0.1,
+    1.0,
+    10.0,
+    100.0
+  ],
+  "selection": "minimum validation MAE per target; first alpha wins ties; no train+validation refit",
+  "splits": [
+    {
+      "fold": 1,
+      "train": [
+        600,
+        18000
+      ],
+      "validation": [
+        18600,
+        21600
+      ],
+      "test": [
+        22200,
+        28200
+      ]
+    },
+    {
+      "fold": 2,
+      "train": [
+        600,
+        24000
+      ],
+      "validation": [
+        24600,
+        27600
+      ],
+      "test": [
+        28200,
+        34200
+      ]
+    },
+    {
+      "fold": 3,
+      "train": [
+        600,
+        30000
+      ],
+      "validation": [
+        30600,
+        33600
+      ],
+      "test": [
+        34200,
+        40200
+      ]
+    }
+  ],
+  "prediction_plot": {
+    "fold": 2,
+    "first_seconds": 600
+  }
+}

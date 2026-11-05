@@ -1,0 +1,42 @@
+{
+  "ethylene_CO.txt": {
+    "member": "ethylene_CO.txt",
+    "member_sha256": "eb979ebf40f22bb7206b4fdd335fad6da51ad0289d2a37fdb1fff2f6e425487e",
+    "header": "Time (seconds), CO conc (ppm), Ethylene conc (ppm), sensor readings (16 channels)",
+    "raw_rows": 4208261,
+    "raw_first_timestamp_seconds": 0.0,
+    "duplicate_timestamp_steps": 122672,
+    "raw_last_timestamp_seconds": 42087.55,
+    "grid_rows": 42088,
+    "grid_last_elapsed_seconds": 42087.0,
+    "max_raw_gap_seconds": 0.37999999999919964,
+    "max_source_age_seconds": 0.1499999999996362,
+    "source_age_quantiles_seconds": [
+      0.0,
+      0.0,
+      0.0,
+      0.1499999999996362
+    ],
+    "grid_points_source_older_than_one_interval": 0
+  },
+  "ethylene_methane.txt": {
+    "member": "ethylene_methane.txt",
+    "member_sha256": "a00f383f2734850cf61370dc687cb09e9b400648549567a2f6a43e5c6a99aaf2",
+    "header": "Time (seconds), Methane conc (ppm), Ethylene conc (ppm), sensor readings (16 channels)",
+    "raw_rows": 4178504,
+    "raw_first_timestamp_seconds": 0.0,
+    "duplicate_timestamp_steps": 104950,
+    "raw_last_timestamp_seconds": 41790.19,
+    "grid_rows": 41791,
+    "grid_last_elapsed_seconds": 41790.0,
+    "max_raw_gap_seconds": 0.27000000000001023,
+    "max_source_age_seconds": 0.1499999999996362,
+    "source_age_quantiles_seconds": [
+      0.0,
+      0.0,
+      0.0,
+      0.1499999999996362
+    ],
+    "grid_points_source_older_than_one_interval": 0
+  }
+}

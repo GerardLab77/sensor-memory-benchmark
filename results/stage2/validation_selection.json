@@ -1,0 +1,1502 @@
+[
+  {
+    "recording": "ethylene_CO.txt",
+    "fold": 1,
+    "model": "current",
+    "gas": "CO",
+    "selected_alpha": 1.0,
+    "candidates": [
+      {
+        "alpha": 0.1,
+        "validation_mae_ppm": 48.062121733613836
+      },
+      {
+        "alpha": 1.0,
+        "validation_mae_ppm": 47.65104237010255
+      },
+      {
+        "alpha": 10.0,
+        "validation_mae_ppm": 49.80037759182736
+      },
+      {
+        "alpha": 100.0,
+        "validation_mae_ppm": 58.93709215603099
+      }
+    ]
+  },
+  {
+    "recording": "ethylene_CO.txt",
+    "fold": 1,
+    "model": "current",
+    "gas": "ethylene",
+    "selected_alpha": 0.1,
+    "candidates": [
+      {
+        "alpha": 0.1,
+        "validation_mae_ppm": 2.945862915138668
+      },
+      {
+        "alpha": 1.0,
+        "validation_mae_ppm": 2.979434106144828
+      },
+      {
+        "alpha": 10.0,
+        "validation_mae_ppm": 3.065987151744899
+      },
+      {
+        "alpha": 100.0,
+        "validation_mae_ppm": 3.0116321390342926
+      }
+    ]
+  },
+  {
+    "recording": "ethylene_CO.txt",
+    "fold": 1,
+    "model": "summary",
+    "gas": "CO",
+    "selected_alpha": 100.0,
+    "candidates": [
+      {
+        "alpha": 0.1,
+        "validation_mae_ppm": 44.366383077687544
+      },
+      {
+        "alpha": 1.0,
+        "validation_mae_ppm": 41.96537751923493
+      },
+      {
+        "alpha": 10.0,
+        "validation_mae_ppm": 37.20965244621021
+      },
+      {
+        "alpha": 100.0,
+        "validation_mae_ppm": 35.383409484274
+      }
+    ]
+  },
+  {
+    "recording": "ethylene_CO.txt",
+    "fold": 1,
+    "model": "summary",
+    "gas": "ethylene",
+    "selected_alpha": 100.0,
+    "candidates": [
+      {
+        "alpha": 0.1,
+        "validation_mae_ppm": 2.871202261832789
+      },
+      {
+        "alpha": 1.0,
+        "validation_mae_ppm": 2.7699847672710516
+      },
+      {
+        "alpha": 10.0,
+        "validation_mae_ppm": 2.6957891003203827
+      },
+      {
+        "alpha": 100.0,
+        "validation_mae_ppm": 2.5325177027917265
+      }
+    ]
+  },
+  {
+    "recording": "ethylene_CO.txt",
+    "fold": 1,
+    "model": "lags_10s",
+    "gas": "CO",
+    "selected_alpha": 10.0,
+    "candidates": [
+      {
+        "alpha": 0.1,
+        "validation_mae_ppm": 34.31659684796615
+      },
+      {
+        "alpha": 1.0,
+        "validation_mae_ppm": 34.15447269473214
+      },
+      {
+        "alpha": 10.0,
+        "validation_mae_ppm": 33.5369108559661
+      },
+      {
+        "alpha": 100.0,
+        "validation_mae_ppm": 38.477473721212725
+      }
+    ]
+  },
+  {
+    "recording": "ethylene_CO.txt",
+    "fold": 1,
+    "model": "lags_10s",
+    "gas": "ethylene",
+    "selected_alpha": 0.1,
+    "candidates": [
+      {
+        "alpha": 0.1,
+        "validation_mae_ppm": 2.712556305646901
+      },
+      {
+        "alpha": 1.0,
+        "validation_mae_ppm": 2.740371023795267
+      },
+      {
+        "alpha": 10.0,
+        "validation_mae_ppm": 2.8975517234625294
+      },
+      {
+        "alpha": 100.0,
+        "validation_mae_ppm": 3.0338520932046062
+      }
+    ]
+  },
+  {
+    "recording": "ethylene_CO.txt",
+    "fold": 1,
+    "model": "lags_30s",
+    "gas": "CO",
+    "selected_alpha": 10.0,
+    "candidates": [
+      {
+        "alpha": 0.1,
+        "validation_mae_ppm": 37.2437863742342
+      },
+      {
+        "alpha": 1.0,
+        "validation_mae_ppm": 37.17043701994036
+      },
+      {
+        "alpha": 10.0,
+        "validation_mae_ppm": 36.56346016106831
+      },
+      {
+        "alpha": 100.0,
+        "validation_mae_ppm": 36.69524075223195
+      }
+    ]
+  },
+  {
+    "recording": "ethylene_CO.txt",
+    "fold": 1,
+    "model": "lags_30s",
+    "gas": "ethylene",
+    "selected_alpha": 0.1,
+    "candidates": [
+      {
+        "alpha": 0.1,
+        "validation_mae_ppm": 2.6342014991005525
+      },
+      {
+        "alpha": 1.0,
+        "validation_mae_ppm": 2.657116354021491
+      },
+      {
+        "alpha": 10.0,
+        "validation_mae_ppm": 2.8166515840507222
+      },
+      {
+        "alpha": 100.0,
+        "validation_mae_ppm": 2.9714723142110877
+      }
+    ]
+  },
+  {
+    "recording": "ethylene_CO.txt",
+    "fold": 1,
+    "model": "lags_120s",
+    "gas": "CO",
+    "selected_alpha": 10.0,
+    "candidates": [
+      {
+        "alpha": 0.1,
+        "validation_mae_ppm": 39.240658435437645
+      },
+      {
+        "alpha": 1.0,
+        "validation_mae_ppm": 38.67317022815529
+      },
+      {
+        "alpha": 10.0,
+        "validation_mae_ppm": 37.05098996849078
+      },
+      {
+        "alpha": 100.0,
+        "validation_mae_ppm": 37.37668475229416
+      }
+    ]
+  },
+  {
+    "recording": "ethylene_CO.txt",
+    "fold": 1,
+    "model": "lags_120s",
+    "gas": "ethylene",
+    "selected_alpha": 100.0,
+    "candidates": [
+      {
+        "alpha": 0.1,
+        "validation_mae_ppm": 2.8965050053133097
+      },
+      {
+        "alpha": 1.0,
+        "validation_mae_ppm": 2.901827381924338
+      },
+      {
+        "alpha": 10.0,
+        "validation_mae_ppm": 2.9133935621379883
+      },
+      {
+        "alpha": 100.0,
+        "validation_mae_ppm": 2.810048849984708
+      }
+    ]
+  },
+  {
+    "recording": "ethylene_CO.txt",
+    "fold": 2,
+    "model": "current",
+    "gas": "CO",
+    "selected_alpha": 10.0,
+    "candidates": [
+      {
+        "alpha": 0.1,
+        "validation_mae_ppm": 47.416953816702666
+      },
+      {
+        "alpha": 1.0,
+        "validation_mae_ppm": 46.87390867304534
+      },
+      {
+        "alpha": 10.0,
+        "validation_mae_ppm": 46.21816652157367
+      },
+      {
+        "alpha": 100.0,
+        "validation_mae_ppm": 49.78087452255396
+      }
+    ]
+  },
+  {
+    "recording": "ethylene_CO.txt",
+    "fold": 2,
+    "model": "current",
+    "gas": "ethylene",
+    "selected_alpha": 0.1,
+    "candidates": [
+      {
+        "alpha": 0.1,
+        "validation_mae_ppm": 2.569860908220604
+      },
+      {
+        "alpha": 1.0,
+        "validation_mae_ppm": 2.581746346789897
+      },
+      {
+        "alpha": 10.0,
+        "validation_mae_ppm": 2.6495296428682287
+      },
+      {
+        "alpha": 100.0,
+        "validation_mae_ppm": 2.7531585193426813
+      }
+    ]
+  },
+  {
+    "recording": "ethylene_CO.txt",
+    "fold": 2,
+    "model": "summary",
+    "gas": "CO",
+    "selected_alpha": 100.0,
+    "candidates": [
+      {
+        "alpha": 0.1,
+        "validation_mae_ppm": 40.694612944627956
+      },
+      {
+        "alpha": 1.0,
+        "validation_mae_ppm": 41.214891321663835
+      },
+      {
+        "alpha": 10.0,
+        "validation_mae_ppm": 39.926653032248645
+      },
+      {
+        "alpha": 100.0,
+        "validation_mae_ppm": 38.46927275337796
+      }
+    ]
+  },
+  {
+    "recording": "ethylene_CO.txt",
+    "fold": 2,
+    "model": "summary",
+    "gas": "ethylene",
+    "selected_alpha": 0.1,
+    "candidates": [
+      {
+        "alpha": 0.1,
+        "validation_mae_ppm": 2.15185552811257
+      },
+      {
+        "alpha": 1.0,
+        "validation_mae_ppm": 2.1666824549441794
+      },
+      {
+        "alpha": 10.0,
+        "validation_mae_ppm": 2.263149275843519
+      },
+      {
+        "alpha": 100.0,
+        "validation_mae_ppm": 2.3868640169184956
+      }
+    ]
+  },
+  {
+    "recording": "ethylene_CO.txt",
+    "fold": 2,
+    "model": "lags_10s",
+    "gas": "CO",
+    "selected_alpha": 10.0,
+    "candidates": [
+      {
+        "alpha": 0.1,
+        "validation_mae_ppm": 38.61437246998084
+      },
+      {
+        "alpha": 1.0,
+        "validation_mae_ppm": 37.64765830029657
+      },
+      {
+        "alpha": 10.0,
+        "validation_mae_ppm": 36.08287271750213
+      },
+      {
+        "alpha": 100.0,
+        "validation_mae_ppm": 37.86714971827434
+      }
+    ]
+  },
+  {
+    "recording": "ethylene_CO.txt",
+    "fold": 2,
+    "model": "lags_10s",
+    "gas": "ethylene",
+    "selected_alpha": 0.1,
+    "candidates": [
+      {
+        "alpha": 0.1,
+        "validation_mae_ppm": 2.4500315792125535
+      },
+      {
+        "alpha": 1.0,
+        "validation_mae_ppm": 2.467482537265795
+      },
+      {
+        "alpha": 10.0,
+        "validation_mae_ppm": 2.5343898940226186
+      },
+      {
+        "alpha": 100.0,
+        "validation_mae_ppm": 2.6906859633543245
+      }
+    ]
+  },
+  {
+    "recording": "ethylene_CO.txt",
+    "fold": 2,
+    "model": "lags_30s",
+    "gas": "CO",
+    "selected_alpha": 100.0,
+    "candidates": [
+      {
+        "alpha": 0.1,
+        "validation_mae_ppm": 39.47852269191438
+      },
+      {
+        "alpha": 1.0,
+        "validation_mae_ppm": 38.630134443162056
+      },
+      {
+        "alpha": 10.0,
+        "validation_mae_ppm": 36.709710139267266
+      },
+      {
+        "alpha": 100.0,
+        "validation_mae_ppm": 36.030470198916575
+      }
+    ]
+  },
+  {
+    "recording": "ethylene_CO.txt",
+    "fold": 2,
+    "model": "lags_30s",
+    "gas": "ethylene",
+    "selected_alpha": 0.1,
+    "candidates": [
+      {
+        "alpha": 0.1,
+        "validation_mae_ppm": 2.4591006368500783
+      },
+      {
+        "alpha": 1.0,
+        "validation_mae_ppm": 2.481686844666554
+      },
+      {
+        "alpha": 10.0,
+        "validation_mae_ppm": 2.5701962786886963
+      },
+      {
+        "alpha": 100.0,
+        "validation_mae_ppm": 2.741267552279622
+      }
+    ]
+  },
+  {
+    "recording": "ethylene_CO.txt",
+    "fold": 2,
+    "model": "lags_120s",
+    "gas": "CO",
+    "selected_alpha": 100.0,
+    "candidates": [
+      {
+        "alpha": 0.1,
+        "validation_mae_ppm": 46.864076491086145
+      },
+      {
+        "alpha": 1.0,
+        "validation_mae_ppm": 45.89480899217388
+      },
+      {
+        "alpha": 10.0,
+        "validation_mae_ppm": 43.38234814486498
+      },
+      {
+        "alpha": 100.0,
+        "validation_mae_ppm": 39.437840100722745
+      }
+    ]
+  },
+  {
+    "recording": "ethylene_CO.txt",
+    "fold": 2,
+    "model": "lags_120s",
+    "gas": "ethylene",
+    "selected_alpha": 0.1,
+    "candidates": [
+      {
+        "alpha": 0.1,
+        "validation_mae_ppm": 2.368187579939704
+      },
+      {
+        "alpha": 1.0,
+        "validation_mae_ppm": 2.381981437159296
+      },
+      {
+        "alpha": 10.0,
+        "validation_mae_ppm": 2.418780130086161
+      },
+      {
+        "alpha": 100.0,
+        "validation_mae_ppm": 2.563122426707455
+      }
+    ]
+  },
+  {
+    "recording": "ethylene_CO.txt",
+    "fold": 3,
+    "model": "current",
+    "gas": "CO",
+    "selected_alpha": 100.0,
+    "candidates": [
+      {
+        "alpha": 0.1,
+        "validation_mae_ppm": 60.36783673985725
+      },
+      {
+        "alpha": 1.0,
+        "validation_mae_ppm": 60.324693458836954
+      },
+      {
+        "alpha": 10.0,
+        "validation_mae_ppm": 60.11109456140375
+      },
+      {
+        "alpha": 100.0,
+        "validation_mae_ppm": 58.54045562456458
+      }
+    ]
+  },
+  {
+    "recording": "ethylene_CO.txt",
+    "fold": 3,
+    "model": "current",
+    "gas": "ethylene",
+    "selected_alpha": 10.0,
+    "candidates": [
+      {
+        "alpha": 0.1,
+        "validation_mae_ppm": 2.625621462505643
+      },
+      {
+        "alpha": 1.0,
+        "validation_mae_ppm": 2.6186979326819344
+      },
+      {
+        "alpha": 10.0,
+        "validation_mae_ppm": 2.6099245285397092
+      },
+      {
+        "alpha": 100.0,
+        "validation_mae_ppm": 2.6588410637263937
+      }
+    ]
+  },
+  {
+    "recording": "ethylene_CO.txt",
+    "fold": 3,
+    "model": "summary",
+    "gas": "CO",
+    "selected_alpha": 0.1,
+    "candidates": [
+      {
+        "alpha": 0.1,
+        "validation_mae_ppm": 52.09763779558665
+      },
+      {
+        "alpha": 1.0,
+        "validation_mae_ppm": 53.74279190091693
+      },
+      {
+        "alpha": 10.0,
+        "validation_mae_ppm": 52.84883065654777
+      },
+      {
+        "alpha": 100.0,
+        "validation_mae_ppm": 52.64457165856671
+      }
+    ]
+  },
+  {
+    "recording": "ethylene_CO.txt",
+    "fold": 3,
+    "model": "summary",
+    "gas": "ethylene",
+    "selected_alpha": 0.1,
+    "candidates": [
+      {
+        "alpha": 0.1,
+        "validation_mae_ppm": 2.342069771966216
+      },
+      {
+        "alpha": 1.0,
+        "validation_mae_ppm": 2.360590538322522
+      },
+      {
+        "alpha": 10.0,
+        "validation_mae_ppm": 2.393903047839794
+      },
+      {
+        "alpha": 100.0,
+        "validation_mae_ppm": 2.5007465367040527
+      }
+    ]
+  },
+  {
+    "recording": "ethylene_CO.txt",
+    "fold": 3,
+    "model": "lags_10s",
+    "gas": "CO",
+    "selected_alpha": 10.0,
+    "candidates": [
+      {
+        "alpha": 0.1,
+        "validation_mae_ppm": 51.88773690238801
+      },
+      {
+        "alpha": 1.0,
+        "validation_mae_ppm": 51.573364238978364
+      },
+      {
+        "alpha": 10.0,
+        "validation_mae_ppm": 51.19580100643212
+      },
+      {
+        "alpha": 100.0,
+        "validation_mae_ppm": 51.68318853260174
+      }
+    ]
+  },
+  {
+    "recording": "ethylene_CO.txt",
+    "fold": 3,
+    "model": "lags_10s",
+    "gas": "ethylene",
+    "selected_alpha": 0.1,
+    "candidates": [
+      {
+        "alpha": 0.1,
+        "validation_mae_ppm": 2.4206591356000935
+      },
+      {
+        "alpha": 1.0,
+        "validation_mae_ppm": 2.427356100542799
+      },
+      {
+        "alpha": 10.0,
+        "validation_mae_ppm": 2.4856666143771147
+      },
+      {
+        "alpha": 100.0,
+        "validation_mae_ppm": 2.6194534180663225
+      }
+    ]
+  },
+  {
+    "recording": "ethylene_CO.txt",
+    "fold": 3,
+    "model": "lags_30s",
+    "gas": "CO",
+    "selected_alpha": 100.0,
+    "candidates": [
+      {
+        "alpha": 0.1,
+        "validation_mae_ppm": 51.854133265355465
+      },
+      {
+        "alpha": 1.0,
+        "validation_mae_ppm": 51.61212935256857
+      },
+      {
+        "alpha": 10.0,
+        "validation_mae_ppm": 51.156605215166174
+      },
+      {
+        "alpha": 100.0,
+        "validation_mae_ppm": 50.54243745898181
+      }
+    ]
+  },
+  {
+    "recording": "ethylene_CO.txt",
+    "fold": 3,
+    "model": "lags_30s",
+    "gas": "ethylene",
+    "selected_alpha": 0.1,
+    "candidates": [
+      {
+        "alpha": 0.1,
+        "validation_mae_ppm": 2.3863053820841778
+      },
+      {
+        "alpha": 1.0,
+        "validation_mae_ppm": 2.3936882260124253
+      },
+      {
+        "alpha": 10.0,
+        "validation_mae_ppm": 2.4515417836187923
+      },
+      {
+        "alpha": 100.0,
+        "validation_mae_ppm": 2.6200260307040786
+      }
+    ]
+  },
+  {
+    "recording": "ethylene_CO.txt",
+    "fold": 3,
+    "model": "lags_120s",
+    "gas": "CO",
+    "selected_alpha": 100.0,
+    "candidates": [
+      {
+        "alpha": 0.1,
+        "validation_mae_ppm": 56.19580376802579
+      },
+      {
+        "alpha": 1.0,
+        "validation_mae_ppm": 55.888425509488336
+      },
+      {
+        "alpha": 10.0,
+        "validation_mae_ppm": 55.05752331657367
+      },
+      {
+        "alpha": 100.0,
+        "validation_mae_ppm": 52.0114021629116
+      }
+    ]
+  },
+  {
+    "recording": "ethylene_CO.txt",
+    "fold": 3,
+    "model": "lags_120s",
+    "gas": "ethylene",
+    "selected_alpha": 10.0,
+    "candidates": [
+      {
+        "alpha": 0.1,
+        "validation_mae_ppm": 2.380178782887374
+      },
+      {
+        "alpha": 1.0,
+        "validation_mae_ppm": 2.366747086598606
+      },
+      {
+        "alpha": 10.0,
+        "validation_mae_ppm": 2.3666680002603657
+      },
+      {
+        "alpha": 100.0,
+        "validation_mae_ppm": 2.4820932832775315
+      }
+    ]
+  },
+  {
+    "recording": "ethylene_methane.txt",
+    "fold": 1,
+    "model": "current",
+    "gas": "methane",
+    "selected_alpha": 1.0,
+    "candidates": [
+      {
+        "alpha": 0.1,
+        "validation_mae_ppm": 22.304474565971688
+      },
+      {
+        "alpha": 1.0,
+        "validation_mae_ppm": 22.01288396836658
+      },
+      {
+        "alpha": 10.0,
+        "validation_mae_ppm": 22.02597056262481
+      },
+      {
+        "alpha": 100.0,
+        "validation_mae_ppm": 22.612747433823188
+      }
+    ]
+  },
+  {
+    "recording": "ethylene_methane.txt",
+    "fold": 1,
+    "model": "current",
+    "gas": "ethylene",
+    "selected_alpha": 1.0,
+    "candidates": [
+      {
+        "alpha": 0.1,
+        "validation_mae_ppm": 2.1664942230182707
+      },
+      {
+        "alpha": 1.0,
+        "validation_mae_ppm": 2.15610968041955
+      },
+      {
+        "alpha": 10.0,
+        "validation_mae_ppm": 2.1692038695893348
+      },
+      {
+        "alpha": 100.0,
+        "validation_mae_ppm": 2.3333294056882155
+      }
+    ]
+  },
+  {
+    "recording": "ethylene_methane.txt",
+    "fold": 1,
+    "model": "summary",
+    "gas": "methane",
+    "selected_alpha": 100.0,
+    "candidates": [
+      {
+        "alpha": 0.1,
+        "validation_mae_ppm": 23.158705091715913
+      },
+      {
+        "alpha": 1.0,
+        "validation_mae_ppm": 23.281186216831642
+      },
+      {
+        "alpha": 10.0,
+        "validation_mae_ppm": 22.863062029980778
+      },
+      {
+        "alpha": 100.0,
+        "validation_mae_ppm": 21.024557243765138
+      }
+    ]
+  },
+  {
+    "recording": "ethylene_methane.txt",
+    "fold": 1,
+    "model": "summary",
+    "gas": "ethylene",
+    "selected_alpha": 100.0,
+    "candidates": [
+      {
+        "alpha": 0.1,
+        "validation_mae_ppm": 2.6085159053798823
+      },
+      {
+        "alpha": 1.0,
+        "validation_mae_ppm": 2.463922630918836
+      },
+      {
+        "alpha": 10.0,
+        "validation_mae_ppm": 2.1996237339005424
+      },
+      {
+        "alpha": 100.0,
+        "validation_mae_ppm": 2.1180205072582208
+      }
+    ]
+  },
+  {
+    "recording": "ethylene_methane.txt",
+    "fold": 1,
+    "model": "lags_10s",
+    "gas": "methane",
+    "selected_alpha": 100.0,
+    "candidates": [
+      {
+        "alpha": 0.1,
+        "validation_mae_ppm": 21.463067099669487
+      },
+      {
+        "alpha": 1.0,
+        "validation_mae_ppm": 21.232988114035518
+      },
+      {
+        "alpha": 10.0,
+        "validation_mae_ppm": 20.671175357965996
+      },
+      {
+        "alpha": 100.0,
+        "validation_mae_ppm": 20.10917231658091
+      }
+    ]
+  },
+  {
+    "recording": "ethylene_methane.txt",
+    "fold": 1,
+    "model": "lags_10s",
+    "gas": "ethylene",
+    "selected_alpha": 10.0,
+    "candidates": [
+      {
+        "alpha": 0.1,
+        "validation_mae_ppm": 2.060623037978998
+      },
+      {
+        "alpha": 1.0,
+        "validation_mae_ppm": 2.044500130935912
+      },
+      {
+        "alpha": 10.0,
+        "validation_mae_ppm": 2.042064867274987
+      },
+      {
+        "alpha": 100.0,
+        "validation_mae_ppm": 2.132533299386919
+      }
+    ]
+  },
+  {
+    "recording": "ethylene_methane.txt",
+    "fold": 1,
+    "model": "lags_30s",
+    "gas": "methane",
+    "selected_alpha": 100.0,
+    "candidates": [
+      {
+        "alpha": 0.1,
+        "validation_mae_ppm": 22.416631331388466
+      },
+      {
+        "alpha": 1.0,
+        "validation_mae_ppm": 22.151824730377786
+      },
+      {
+        "alpha": 10.0,
+        "validation_mae_ppm": 21.731557756265108
+      },
+      {
+        "alpha": 100.0,
+        "validation_mae_ppm": 21.360869438868008
+      }
+    ]
+  },
+  {
+    "recording": "ethylene_methane.txt",
+    "fold": 1,
+    "model": "lags_30s",
+    "gas": "ethylene",
+    "selected_alpha": 1.0,
+    "candidates": [
+      {
+        "alpha": 0.1,
+        "validation_mae_ppm": 2.1051408827221483
+      },
+      {
+        "alpha": 1.0,
+        "validation_mae_ppm": 2.0941868849717546
+      },
+      {
+        "alpha": 10.0,
+        "validation_mae_ppm": 2.105376936383091
+      },
+      {
+        "alpha": 100.0,
+        "validation_mae_ppm": 2.1836028840478674
+      }
+    ]
+  },
+  {
+    "recording": "ethylene_methane.txt",
+    "fold": 1,
+    "model": "lags_120s",
+    "gas": "methane",
+    "selected_alpha": 1.0,
+    "candidates": [
+      {
+        "alpha": 0.1,
+        "validation_mae_ppm": 21.653126060481252
+      },
+      {
+        "alpha": 1.0,
+        "validation_mae_ppm": 21.531583727707538
+      },
+      {
+        "alpha": 10.0,
+        "validation_mae_ppm": 21.950909828559176
+      },
+      {
+        "alpha": 100.0,
+        "validation_mae_ppm": 22.18695090670709
+      }
+    ]
+  },
+  {
+    "recording": "ethylene_methane.txt",
+    "fold": 1,
+    "model": "lags_120s",
+    "gas": "ethylene",
+    "selected_alpha": 1.0,
+    "candidates": [
+      {
+        "alpha": 0.1,
+        "validation_mae_ppm": 2.243767514217102
+      },
+      {
+        "alpha": 1.0,
+        "validation_mae_ppm": 2.2255321206088765
+      },
+      {
+        "alpha": 10.0,
+        "validation_mae_ppm": 2.2445461167189573
+      },
+      {
+        "alpha": 100.0,
+        "validation_mae_ppm": 2.336518853306007
+      }
+    ]
+  },
+  {
+    "recording": "ethylene_methane.txt",
+    "fold": 2,
+    "model": "current",
+    "gas": "methane",
+    "selected_alpha": 10.0,
+    "candidates": [
+      {
+        "alpha": 0.1,
+        "validation_mae_ppm": 22.078265746208906
+      },
+      {
+        "alpha": 1.0,
+        "validation_mae_ppm": 21.484814735313428
+      },
+      {
+        "alpha": 10.0,
+        "validation_mae_ppm": 21.087037748918732
+      },
+      {
+        "alpha": 100.0,
+        "validation_mae_ppm": 23.680336711265475
+      }
+    ]
+  },
+  {
+    "recording": "ethylene_methane.txt",
+    "fold": 2,
+    "model": "current",
+    "gas": "ethylene",
+    "selected_alpha": 0.1,
+    "candidates": [
+      {
+        "alpha": 0.1,
+        "validation_mae_ppm": 1.9768845496950507
+      },
+      {
+        "alpha": 1.0,
+        "validation_mae_ppm": 1.9850590563920492
+      },
+      {
+        "alpha": 10.0,
+        "validation_mae_ppm": 2.058546585945693
+      },
+      {
+        "alpha": 100.0,
+        "validation_mae_ppm": 2.238461252715048
+      }
+    ]
+  },
+  {
+    "recording": "ethylene_methane.txt",
+    "fold": 2,
+    "model": "summary",
+    "gas": "methane",
+    "selected_alpha": 1.0,
+    "candidates": [
+      {
+        "alpha": 0.1,
+        "validation_mae_ppm": 20.115883924575
+      },
+      {
+        "alpha": 1.0,
+        "validation_mae_ppm": 19.226843057189985
+      },
+      {
+        "alpha": 10.0,
+        "validation_mae_ppm": 19.482647274160552
+      },
+      {
+        "alpha": 100.0,
+        "validation_mae_ppm": 19.571835186057168
+      }
+    ]
+  },
+  {
+    "recording": "ethylene_methane.txt",
+    "fold": 2,
+    "model": "summary",
+    "gas": "ethylene",
+    "selected_alpha": 1.0,
+    "candidates": [
+      {
+        "alpha": 0.1,
+        "validation_mae_ppm": 1.7822213822593151
+      },
+      {
+        "alpha": 1.0,
+        "validation_mae_ppm": 1.7808886943183795
+      },
+      {
+        "alpha": 10.0,
+        "validation_mae_ppm": 1.8108668498581493
+      },
+      {
+        "alpha": 100.0,
+        "validation_mae_ppm": 1.9244123812565612
+      }
+    ]
+  },
+  {
+    "recording": "ethylene_methane.txt",
+    "fold": 2,
+    "model": "lags_10s",
+    "gas": "methane",
+    "selected_alpha": 10.0,
+    "candidates": [
+      {
+        "alpha": 0.1,
+        "validation_mae_ppm": 20.134012997761854
+      },
+      {
+        "alpha": 1.0,
+        "validation_mae_ppm": 19.942339434648392
+      },
+      {
+        "alpha": 10.0,
+        "validation_mae_ppm": 19.583820934741496
+      },
+      {
+        "alpha": 100.0,
+        "validation_mae_ppm": 19.768543078446523
+      }
+    ]
+  },
+  {
+    "recording": "ethylene_methane.txt",
+    "fold": 2,
+    "model": "lags_10s",
+    "gas": "ethylene",
+    "selected_alpha": 0.1,
+    "candidates": [
+      {
+        "alpha": 0.1,
+        "validation_mae_ppm": 1.7850160388298597
+      },
+      {
+        "alpha": 1.0,
+        "validation_mae_ppm": 1.7877228232561932
+      },
+      {
+        "alpha": 10.0,
+        "validation_mae_ppm": 1.8230102207759482
+      },
+      {
+        "alpha": 100.0,
+        "validation_mae_ppm": 1.9604530941564093
+      }
+    ]
+  },
+  {
+    "recording": "ethylene_methane.txt",
+    "fold": 2,
+    "model": "lags_30s",
+    "gas": "methane",
+    "selected_alpha": 10.0,
+    "candidates": [
+      {
+        "alpha": 0.1,
+        "validation_mae_ppm": 20.0425994679872
+      },
+      {
+        "alpha": 1.0,
+        "validation_mae_ppm": 19.920971354097155
+      },
+      {
+        "alpha": 10.0,
+        "validation_mae_ppm": 19.68060674908717
+      },
+      {
+        "alpha": 100.0,
+        "validation_mae_ppm": 19.71675121419022
+      }
+    ]
+  },
+  {
+    "recording": "ethylene_methane.txt",
+    "fold": 2,
+    "model": "lags_30s",
+    "gas": "ethylene",
+    "selected_alpha": 1.0,
+    "candidates": [
+      {
+        "alpha": 0.1,
+        "validation_mae_ppm": 1.799713015315217
+      },
+      {
+        "alpha": 1.0,
+        "validation_mae_ppm": 1.7995766411046328
+      },
+      {
+        "alpha": 10.0,
+        "validation_mae_ppm": 1.8432318670754975
+      },
+      {
+        "alpha": 100.0,
+        "validation_mae_ppm": 1.9897091211004165
+      }
+    ]
+  },
+  {
+    "recording": "ethylene_methane.txt",
+    "fold": 2,
+    "model": "lags_120s",
+    "gas": "methane",
+    "selected_alpha": 10.0,
+    "candidates": [
+      {
+        "alpha": 0.1,
+        "validation_mae_ppm": 20.50185059138367
+      },
+      {
+        "alpha": 1.0,
+        "validation_mae_ppm": 20.31399663062319
+      },
+      {
+        "alpha": 10.0,
+        "validation_mae_ppm": 20.049840291109465
+      },
+      {
+        "alpha": 100.0,
+        "validation_mae_ppm": 20.727689745790965
+      }
+    ]
+  },
+  {
+    "recording": "ethylene_methane.txt",
+    "fold": 2,
+    "model": "lags_120s",
+    "gas": "ethylene",
+    "selected_alpha": 0.1,
+    "candidates": [
+      {
+        "alpha": 0.1,
+        "validation_mae_ppm": 1.7797358497980822
+      },
+      {
+        "alpha": 1.0,
+        "validation_mae_ppm": 1.7883533853392655
+      },
+      {
+        "alpha": 10.0,
+        "validation_mae_ppm": 1.8618407880537655
+      },
+      {
+        "alpha": 100.0,
+        "validation_mae_ppm": 2.0304084116992605
+      }
+    ]
+  },
+  {
+    "recording": "ethylene_methane.txt",
+    "fold": 3,
+    "model": "current",
+    "gas": "methane",
+    "selected_alpha": 0.1,
+    "candidates": [
+      {
+        "alpha": 0.1,
+        "validation_mae_ppm": 19.728598943101375
+      },
+      {
+        "alpha": 1.0,
+        "validation_mae_ppm": 19.894729660888327
+      },
+      {
+        "alpha": 10.0,
+        "validation_mae_ppm": 21.213699796506837
+      },
+      {
+        "alpha": 100.0,
+        "validation_mae_ppm": 23.655293658390693
+      }
+    ]
+  },
+  {
+    "recording": "ethylene_methane.txt",
+    "fold": 3,
+    "model": "current",
+    "gas": "ethylene",
+    "selected_alpha": 1.0,
+    "candidates": [
+      {
+        "alpha": 0.1,
+        "validation_mae_ppm": 2.146349445375527
+      },
+      {
+        "alpha": 1.0,
+        "validation_mae_ppm": 2.135747614123729
+      },
+      {
+        "alpha": 10.0,
+        "validation_mae_ppm": 2.1378193868678914
+      },
+      {
+        "alpha": 100.0,
+        "validation_mae_ppm": 2.1954956895382844
+      }
+    ]
+  },
+  {
+    "recording": "ethylene_methane.txt",
+    "fold": 3,
+    "model": "summary",
+    "gas": "methane",
+    "selected_alpha": 10.0,
+    "candidates": [
+      {
+        "alpha": 0.1,
+        "validation_mae_ppm": 17.125769914697866
+      },
+      {
+        "alpha": 1.0,
+        "validation_mae_ppm": 16.29596598495858
+      },
+      {
+        "alpha": 10.0,
+        "validation_mae_ppm": 15.92952560439184
+      },
+      {
+        "alpha": 100.0,
+        "validation_mae_ppm": 18.37796180187609
+      }
+    ]
+  },
+  {
+    "recording": "ethylene_methane.txt",
+    "fold": 3,
+    "model": "summary",
+    "gas": "ethylene",
+    "selected_alpha": 0.1,
+    "candidates": [
+      {
+        "alpha": 0.1,
+        "validation_mae_ppm": 2.0437844219694217
+      },
+      {
+        "alpha": 1.0,
+        "validation_mae_ppm": 2.0512425262947755
+      },
+      {
+        "alpha": 10.0,
+        "validation_mae_ppm": 2.0582049007559498
+      },
+      {
+        "alpha": 100.0,
+        "validation_mae_ppm": 2.078126770906495
+      }
+    ]
+  },
+  {
+    "recording": "ethylene_methane.txt",
+    "fold": 3,
+    "model": "lags_10s",
+    "gas": "methane",
+    "selected_alpha": 0.1,
+    "candidates": [
+      {
+        "alpha": 0.1,
+        "validation_mae_ppm": 17.081237864871998
+      },
+      {
+        "alpha": 1.0,
+        "validation_mae_ppm": 17.105602075860578
+      },
+      {
+        "alpha": 10.0,
+        "validation_mae_ppm": 17.901482176355575
+      },
+      {
+        "alpha": 100.0,
+        "validation_mae_ppm": 20.225577970888256
+      }
+    ]
+  },
+  {
+    "recording": "ethylene_methane.txt",
+    "fold": 3,
+    "model": "lags_10s",
+    "gas": "ethylene",
+    "selected_alpha": 1.0,
+    "candidates": [
+      {
+        "alpha": 0.1,
+        "validation_mae_ppm": 1.958384285802855
+      },
+      {
+        "alpha": 1.0,
+        "validation_mae_ppm": 1.9567292823068074
+      },
+      {
+        "alpha": 10.0,
+        "validation_mae_ppm": 1.9785436762798825
+      },
+      {
+        "alpha": 100.0,
+        "validation_mae_ppm": 2.0760064614686224
+      }
+    ]
+  },
+  {
+    "recording": "ethylene_methane.txt",
+    "fold": 3,
+    "model": "lags_30s",
+    "gas": "methane",
+    "selected_alpha": 1.0,
+    "candidates": [
+      {
+        "alpha": 0.1,
+        "validation_mae_ppm": 16.56551410823716
+      },
+      {
+        "alpha": 1.0,
+        "validation_mae_ppm": 16.48979315167507
+      },
+      {
+        "alpha": 10.0,
+        "validation_mae_ppm": 17.18215015358376
+      },
+      {
+        "alpha": 100.0,
+        "validation_mae_ppm": 19.22009428887206
+      }
+    ]
+  },
+  {
+    "recording": "ethylene_methane.txt",
+    "fold": 3,
+    "model": "lags_30s",
+    "gas": "ethylene",
+    "selected_alpha": 1.0,
+    "candidates": [
+      {
+        "alpha": 0.1,
+        "validation_mae_ppm": 2.003057127749203
+      },
+      {
+        "alpha": 1.0,
+        "validation_mae_ppm": 2.0022886101895416
+      },
+      {
+        "alpha": 10.0,
+        "validation_mae_ppm": 2.0254947719179963
+      },
+      {
+        "alpha": 100.0,
+        "validation_mae_ppm": 2.1246560497598965
+      }
+    ]
+  },
+  {
+    "recording": "ethylene_methane.txt",
+    "fold": 3,
+    "model": "lags_120s",
+    "gas": "methane",
+    "selected_alpha": 1.0,
+    "candidates": [
+      {
+        "alpha": 0.1,
+        "validation_mae_ppm": 16.555985652563418
+      },
+      {
+        "alpha": 1.0,
+        "validation_mae_ppm": 16.408972417860475
+      },
+      {
+        "alpha": 10.0,
+        "validation_mae_ppm": 16.831092181623706
+      },
+      {
+        "alpha": 100.0,
+        "validation_mae_ppm": 19.6899679159865
+      }
+    ]
+  },
+  {
+    "recording": "ethylene_methane.txt",
+    "fold": 3,
+    "model": "lags_120s",
+    "gas": "ethylene",
+    "selected_alpha": 0.1,
+    "candidates": [
+      {
+        "alpha": 0.1,
+        "validation_mae_ppm": 2.0009676823333455
+      },
+      {
+        "alpha": 1.0,
+        "validation_mae_ppm": 2.0120778549314835
+      },
+      {
+        "alpha": 10.0,
+        "validation_mae_ppm": 2.082524693913696
+      },
+      {
+        "alpha": 100.0,
+        "validation_mae_ppm": 2.227469715518074
+      }
+    ]
+  }
+]

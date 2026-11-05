@@ -1,0 +1,18 @@
+test_future_cannot_change_past_features (test_benchmark.Controls.test_future_cannot_change_past_features) ... ok
+test_lag_alignment (test_benchmark.Controls.test_lag_alignment) ... ok
+test_split_gap (test_benchmark.Controls.test_split_gap) ... ok
+test_metrics_and_pairing_match_saved_predictions (test_stage2.SavedStage2Controls.test_metrics_and_pairing_match_saved_predictions) ... ok
+test_saved_alpha_selection_and_provenance (test_stage2.SavedStage2Controls.test_saved_alpha_selection_and_provenance) ... ok
+test_causal_resampling_and_chunk_boundaries (test_stage2.Stage2Controls.test_causal_resampling_and_chunk_boundaries) ... ok
+test_ewma_seconds_and_continuous_boundary_state (test_stage2.Stage2Controls.test_ewma_seconds_and_continuous_boundary_state) ... ok
+test_fixed_split_coverage_gaps_and_test_nonoverlap (test_stage2.Stage2Controls.test_fixed_split_coverage_gaps_and_test_nonoverlap) ... ok
+test_future_perturbation_and_sparse_lag_alignment (test_stage2.Stage2Controls.test_future_perturbation_and_sparse_lag_alignment) ... ok
+test_percent_zero_baseline_and_sign (test_stage2.Stage2Controls.test_percent_zero_baseline_and_sign) ... ok
+test_reject_invalid_unsampled_rows (test_stage2.Stage2Controls.test_reject_invalid_unsampled_rows) ... ok
+test_tied_timestamps_choose_last_row_across_chunks (test_stage2.Stage2Controls.test_tied_timestamps_choose_last_row_across_chunks) ... ok
+test_train_only_scaling_and_validation_only_selection (test_stage2.Stage2Controls.test_train_only_scaling_and_validation_only_selection) ... ok
+
+----------------------------------------------------------------------
+Ran 13 tests in 0.176s
+
+OK

@@ -114,5 +114,51 @@ class Stage2Controls(unittest.TestCase):
         self.assertEqual(paired_change(2, 0), (2, None, 'zero_baseline'))
 
 
+class SavedStage2Controls(unittest.TestCase):
+    """Recheck delivered artifacts without fitting models or rerunning evaluation."""
+
+    @unittest.skipUnless(Path('results/stage2/metrics.json').exists(), 'No saved Stage 2 run')
+    def test_metrics_and_pairing_match_saved_predictions(self):
+        out = Path('results/stage2')
+        records = json.loads((out / 'metrics.json').read_text())
+        self.assertEqual(len(records), 60)
+        self.assertEqual(len({(r['recording'], r['fold'], r['gas'], r['model']) for r in records}), 60)
+        for row in records:
+            with np.load(out / f'{Path(row["recording"]).stem}_fold{row["fold"]}.npz') as saved:
+                j = CONFIG['recordings'][row['recording']].index(row['gas'])
+                self.assertEqual(saved[row['model']].shape, (6000, 2))
+                start, end = CONFIG['splits'][row['fold'] - 1]['test']
+                np.testing.assert_array_equal(saved['time'], np.arange(start, end))
+                error = saved[row['model']][:, j] - saved['target'][:, j]
+                current_error = saved['current'][:, j] - saved['target'][:, j]
+                for metric, measure in [('mae', lambda e: np.mean(np.abs(e))), ('rmse', lambda e: np.sqrt(np.mean(e ** 2)))]:
+                    self.assertAlmostEqual(row[f'{metric}_ppm'], measure(error))
+                    baseline = measure(current_error)
+                    self.assertAlmostEqual(row[f'current_{metric}_ppm'], baseline)
+                    delta, percent, status = paired_change(measure(error), baseline)
+                    self.assertAlmostEqual(row[f'{metric}_delta_ppm'], delta)
+                    self.assertAlmostEqual(row[f'{metric}_percent_change'], percent)
+                    self.assertEqual(row[f'{metric}_percent_status'], status)
+
+    @unittest.skipUnless(Path('results/stage2/validation_selection.json').exists(), 'No saved Stage 2 run')
+    def test_saved_alpha_selection_and_provenance(self):
+        out = Path('results/stage2')
+        selections = json.loads((out / 'validation_selection.json').read_text())
+        records = json.loads((out / 'metrics.json').read_text())
+        self.assertEqual(len(selections), 60)
+        for selection, row in zip(selections, records):
+            for key in ('recording', 'fold', 'gas', 'model'):
+                self.assertEqual(selection[key], row[key])
+            best = min(selection['candidates'], key=lambda r: r['validation_mae_ppm'])
+            self.assertEqual(row['alpha'], best['alpha'])
+            self.assertEqual(selection['selected_alpha'], best['alpha'])
+        environment = json.loads((out / 'environment.json').read_text())
+        # Git may check out CRLF on Windows; the evaluated sources used LF.
+        for path, key in [('stage2.py', 'source_sha256'), ('stage2_config.json', 'config_sha256')]:
+            canonical_bytes = Path(path).read_bytes().replace(b'\r\n', b'\n')
+            self.assertEqual(hashlib.sha256(canonical_bytes).hexdigest(), environment[key])
+        self.assertEqual(json.loads((out / 'config.json').read_text()), CONFIG)
+
+
 if __name__ == '__main__':
     unittest.main()
