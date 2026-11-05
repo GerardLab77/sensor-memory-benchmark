@@ -1,0 +1,33 @@
+{
+  "python": "3.12.14 (main, Aug 25 2026, 14:01:42) [MSC v.1944 64 bit (AMD64)]",
+  "platform": "Windows-11-10.0.26200-SP0",
+  "packages": {
+    "contourpy": "1.4.0",
+    "cycler": "0.12.1",
+    "fonttools": "4.68.0",
+    "joblib": "1.5.3",
+    "kiwisolver": "1.5.1",
+    "matplotlib": "3.10.8",
+    "numpy": "2.3.5",
+    "packaging": "26.3",
+    "pillow": "13.0.0",
+    "pyparsing": "3.3.3",
+    "python-dateutil": "4.0.0",
+    "scikit-learn": "1.8.0",
+    "scipy": "1.17.0",
+    "threadpoolctl": "3.6.0",
+    "tzdata": "2026.6"
+  },
+  "git_head": "546af54312105b69ff002a21bc886ac312781641",
+  "git_status": "?? results/stage2/\n",
+  "source_sha256": "6f93bbb3d0231f48071cab4f71eecf339cb7ee4ac6d40fcf40e1d851b7c5573d",
+  "config_sha256": "046909aa2f1eb5aaff857e4a3e9393ab491e25f23cb52fc362bb36056a24bd3f",
+  "archive_sha256": "8b6323b801363e11343ba1a5a7718e76666b715e753b3a40dbdfd1838d953fe7",
+  "source_url": "https://archive.ics.uci.edu/static/public/322/gas+sensor+array+under+dynamic+gas+mixtures.zip",
+  "started_utc": "2026-11-05T21:21:54.626736+00:00",
+  "command": [
+    "stage2.py",
+    "--download"
+  ],
+  "thread_limit": 1
+}

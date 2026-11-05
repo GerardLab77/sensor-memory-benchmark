@@ -1,5 +1,6 @@
 {
-  "protocol_version": 1,
+  "protocol_version": 2,
+  "duplicate_timestamp_policy": "nondecreasing timestamps; last row in file order at ties, including across chunks",
   "recordings": {"ethylene_CO.txt": ["CO", "ethylene"], "ethylene_methane.txt": ["methane", "ethylene"]},
   "sample_interval_seconds": 1,
   "warmup_seconds": 600,

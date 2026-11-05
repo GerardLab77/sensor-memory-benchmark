@@ -53,6 +53,7 @@ def load_recording(archive, member, dt=1, chunk_size=100000):
     next_index = 0
     count = 0
     max_gap = 0.0
+    duplicate_timestamps = 0
     with zipfile.ZipFile(archive) as z, z.open(member) as stream:
         header_bytes = stream.readline()
         digest.update(header_bytes)
@@ -76,11 +77,13 @@ def load_recording(archive, member, dt=1, chunk_size=100000):
             if previous is not None:
                 raw = np.vstack([previous, raw])
             differences = np.diff(raw[:, 0])
-            if np.any(differences <= 0):
-                raise ValueError('Raw timestamps must be strictly increasing')
+            if np.any(differences < 0):
+                raise ValueError('Raw timestamps must be nondecreasing')
+            duplicate_timestamps += int(np.sum(differences == 0))
             if len(differences):
                 max_gap = max(max_gap, float(differences.max()))
-            last_index = int(np.floor((raw[-1, 0] - origin) / dt))
+            # Defer the last timestamp: tied rows may continue in the next chunk.
+            last_index = int(np.ceil((raw[-1, 0] - origin) / dt)) - 1
             elapsed_grid = np.arange(next_index, last_index + 1) * dt
             grid = origin + elapsed_grid
             idx = causal_indices(raw[:, 0], grid)
@@ -91,9 +94,14 @@ def load_recording(archive, member, dt=1, chunk_size=100000):
             previous = raw[-1:]
     if not sampled:
         raise ValueError('Empty recording')
+    if origin + next_index * dt == previous[0, 0]:
+        sampled.append(previous)
+        grids.append(np.array([next_index * dt]))
+        ages.append(np.array([0.0]))
     values, elapsed, age = np.vstack(sampled), np.concatenate(grids), np.concatenate(ages)
     metadata = dict(member=member, member_sha256=digest.hexdigest(), header=header,
                     raw_rows=count, raw_first_timestamp_seconds=origin,
+                    duplicate_timestamp_steps=duplicate_timestamps,
                     raw_last_timestamp_seconds=float(previous[0, 0]),
                     grid_rows=len(elapsed), grid_last_elapsed_seconds=float(elapsed[-1]),
                     max_raw_gap_seconds=max_gap, max_source_age_seconds=float(age.max()),

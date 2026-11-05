@@ -35,7 +35,7 @@ class Stage2Controls(unittest.TestCase):
             causal_indices([1, 2], [0])
 
     def test_reject_invalid_unsampled_rows(self):
-        for bad in ('0.2 ' + 'nan ' * 18, '0.1 ' + '1 ' * 18, '0.2 1 2'):
+        for bad in ('0.2 ' + 'nan ' * 18, '0.05 ' + '1 ' * 18, '0.2 1 2'):
             text = 'header\n' + '0.1 ' + '1 ' * 18 + '\n' + bad + '\n'
             with tempfile.TemporaryDirectory() as directory:
                 path = Path(directory) / 'bad.zip'
@@ -43,6 +43,19 @@ class Stage2Controls(unittest.TestCase):
                     z.writestr('bad.txt', text)
                 with self.assertRaises(ValueError):
                     load_recording(path, 'bad.txt', chunk_size=1)
+
+    def test_tied_timestamps_choose_last_row_across_chunks(self):
+        times = [0, 0, 1, 1, 1, 2, 3, 3]
+        text = 'header\n' + '\n'.join(str(t) + ' ' + ' '.join([str(i)] * 18) for i, t in enumerate(times)) + '\n'
+        with tempfile.TemporaryDirectory() as directory:
+            path = Path(directory) / 'ties.zip'
+            with zipfile.ZipFile(path, 'w') as z:
+                z.writestr('ties.txt', text)
+            for size in (1, 2, 3, 100):
+                t, x, y, checks = load_recording(path, 'ties.txt', chunk_size=size)
+                np.testing.assert_array_equal(t, [0, 1, 2, 3])
+                np.testing.assert_array_equal(y[:, 0], [1, 4, 5, 7])
+                self.assertEqual(checks['duplicate_timestamp_steps'], 4)
 
     def test_future_perturbation_and_sparse_lag_alignment(self):
         x = np.arange(800., dtype=float)[:, None]

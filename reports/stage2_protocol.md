@@ -53,3 +53,14 @@ chosen in advance rather than selecting a favourable period. Record archive and
 member SHA256, config/code hashes, Git revision, package versions and split times.
 One scientific run; retries for infrastructure or code correctness must be logged,
 never used to select favourable models/results.
+
+## Preflight amendment (before any fit or new test predictions)
+
+The first raw-data validation at implementation commit `546af54` rejected repeated
+timestamps in the first CO chunk. The exploratory stride had hidden these ties.
+Protocol version 2 accepts nondecreasing timestamps, still rejects time reversal,
+counts ties, and chooses the last raw row in file order for an equal timestamp.
+Chunk-end timestamps are deferred until the next chunk so that a tie spanning a
+chunk boundary cannot select an earlier row. A dedicated test checks this rule.
+No splits, features, alpha candidates or scoring rules changed. The aborted
+attempt's config/environment are retained in `results/stage2_attempt01_preflight`.
