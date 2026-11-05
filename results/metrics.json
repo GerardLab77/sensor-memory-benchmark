@@ -1,0 +1,112 @@
+{
+  "source": "UCI 322 real recorded sensor data",
+  "member": "ethylene_CO.txt",
+  "header": "Time (seconds), CO conc (ppm), Ethylene conc (ppm), sensor readings (16 channels)",
+  "sha256": "8b6323b801363e11343ba1a5a7718e76666b715e753b3a40dbdfd1838d953fe7",
+  "max_original_subsample_gap_seconds": 2.889999999999418,
+  "resampling": "causal previous observation on median-interval grid",
+  "rows": 42087,
+  "stride": 100,
+  "sample_interval_seconds": 1.0,
+  "gap_samples": 600,
+  "summary_time_constants_samples": [
+    5,
+    30,
+    120
+  ],
+  "split_ranges": {
+    "train": [
+      600,
+      25251
+    ],
+    "validation": [
+      25852,
+      33668
+    ],
+    "test": [
+      34269,
+      42086
+    ]
+  },
+  "python": "3.12.14",
+  "numpy": "2.3.5",
+  "sklearn": "1.8.0",
+  "platform": "Linux-6.18.57-x86_64-with-glibc2.39",
+  "results": [
+    {
+      "model": "current",
+      "alpha": 1.0,
+      "validation_mae_mean": 32.45839092514712,
+      "test_mae_per_target": [
+        55.98261510948685,
+        2.247093932616448
+      ],
+      "test_rmse_per_target": [
+        92.71703984057484,
+        3.2347355389589287
+      ],
+      "features": 16,
+      "batch_prediction_seconds": 0.0010957119999943643
+    },
+    {
+      "model": "summary",
+      "alpha": 10.0,
+      "validation_mae_mean": 29.142902356229545,
+      "test_mae_per_target": [
+        47.016197580235826,
+        2.347296845429061
+      ],
+      "test_rmse_per_target": [
+        85.60481318816645,
+        3.2902946120128265
+      ],
+      "features": 80,
+      "batch_prediction_seconds": 0.004452077999985704
+    },
+    {
+      "model": "lags_10s",
+      "alpha": 10.0,
+      "validation_mae_mean": 27.613994821737368,
+      "test_mae_per_target": [
+        45.75622692769895,
+        2.2040692081025286
+      ],
+      "test_rmse_per_target": [
+        84.63386967358727,
+        3.1806059539377554
+      ],
+      "features": 80,
+      "batch_prediction_seconds": 0.003980806999948072
+    },
+    {
+      "model": "lags_30s",
+      "alpha": 10.0,
+      "validation_mae_mean": 28.026597911188475,
+      "test_mae_per_target": [
+        44.923150209689524,
+        2.1475928547062644
+      ],
+      "test_rmse_per_target": [
+        84.17267601773456,
+        3.146765797377836
+      ],
+      "features": 80,
+      "batch_prediction_seconds": 0.003504106999969281
+    },
+    {
+      "model": "lags_120s",
+      "alpha": 100.0,
+      "validation_mae_mean": 29.265676141777114,
+      "test_mae_per_target": [
+        47.174129350023996,
+        2.1207732973612847
+      ],
+      "test_rmse_per_target": [
+        85.07716659853612,
+        3.147293534755977
+      ],
+      "features": 80,
+      "batch_prediction_seconds": 0.004203459999985171
+    }
+  ]
+}
