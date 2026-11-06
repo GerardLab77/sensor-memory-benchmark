@@ -1,0 +1,607 @@
+{
+  "passed": true,
+  "python": "3.12.14 (main, Aug 25 2026, 14:01:42) [MSC v.1944 64 bit (AMD64)]",
+  "numpy": "2.3.5",
+  "platform": "Windows-11-10.0.26200-SP0",
+  "compiler_version": "clang version 20.1.2 (https://github.com/ziglang/zig-bootstrap 7ef74e656cf8ddbd6bf891a8475892aa1afa6891)\nTarget: x86_64-unknown-windows-gnu\nThread model: posix",
+  "build_commands": [
+    [
+      "zig.exe",
+      "c++",
+      "-std=c++17",
+      "-O2",
+      "-Wall",
+      "-Wextra",
+      "-Werror",
+      "-ffp-contract=off",
+      "-fno-fast-math",
+      "cpp/test_sensor_model.cpp",
+      "-o",
+      "work/cpp_check/test_float32.exe"
+    ],
+    [
+      "zig.exe",
+      "c++",
+      "-std=c++17",
+      "-O2",
+      "-Wall",
+      "-Wextra",
+      "-Werror",
+      "-ffp-contract=off",
+      "-fno-fast-math",
+      "cpp/replay.cpp",
+      "-o",
+      "work/cpp_check/replay_float32.exe"
+    ],
+    [
+      "zig.exe",
+      "c++",
+      "-std=c++17",
+      "-O2",
+      "-Wall",
+      "-Wextra",
+      "-Werror",
+      "-ffp-contract=off",
+      "-fno-fast-math",
+      "-DSENSOR_DOUBLE",
+      "cpp/test_sensor_model.cpp",
+      "-o",
+      "work/cpp_check/test_float64.exe"
+    ],
+    [
+      "zig.exe",
+      "c++",
+      "-std=c++17",
+      "-O2",
+      "-Wall",
+      "-Wextra",
+      "-Werror",
+      "-ffp-contract=off",
+      "-fno-fast-math",
+      "-DSENSOR_DOUBLE",
+      "cpp/replay.cpp",
+      "-o",
+      "work/cpp_check/replay_float64.exe"
+    ]
+  ],
+  "git_head": "e15e076733309d8f335262928ee1a57ed5171584",
+  "git_status": "M  .gitignore\nM  README.md\nAM check_cpp.py\nAM cpp/replay.cpp\nAM cpp/sensor_model.hpp\nAM cpp/test_sensor_model.cpp\nA  reports/cpp_port.md\nA  results/cpp/report.json\n",
+  "sources": {
+    "check_cpp.py": "bd770a81cfb8efef2092e1e0299584df319985652f96f911acba4573607785dc",
+    "cpp/sensor_model.hpp": "1d694db5d53162fdfb677f56b4a09835c530a756ff219fcc675bfc0f481613e4",
+    "cpp/replay.cpp": "c64947e779ca7aa97af7d3c8746f3d37e9640588730dc1a8321f34ee773f6eb8",
+    "cpp/test_sensor_model.cpp": "fa57c1468457b8c6025b775cc04a0139f61f3a5ac593091a26aff8bcb610c098",
+    "stage2.py": "3409b6d3b01f8194424d010276dd6374e35272afdbb69abb38efc54c1ddf5db7"
+  },
+  "config_sha256": "51221c55fb0d77cef72cff1ac77429c40fbfd4a55c12c1dadb61ebaedefeff79",
+  "archive_sha256": "8b6323b801363e11343ba1a5a7718e76666b715e753b3a40dbdfd1838d953fe7",
+  "tolerances": {
+    "double_atol_ppm": 1e-08,
+    "float_atol_ppm": 0.01,
+    "mae_relative_change_limit": 0.001,
+    "ordered_float_atol_ppm": 1e-06
+  },
+  "cpp_state_tests": "passed for float32 and float64: startup, wraparound, reset, invalid readings",
+  "models": [
+    {
+      "period": "ethylene_CO_fold1",
+      "model": "current",
+      "targets": [
+        "CO",
+        "ethylene"
+      ],
+      "alpha": [
+        1.0,
+        0.1
+      ],
+      "test_updates": 6000,
+      "priming_updates": 10,
+      "saved_predictions_sha256": "4e9de18be04ce90e8eea822d5ca47544e5a264a990f14bb0e5882615e74779b7",
+      "refit_vs_saved_max_ppm": 0.0,
+      "double_vs_saved_max_ppm": 1.7905676941154525e-12,
+      "double_vs_folded_all_updates_max_ppm": 1.7053025658242404e-12,
+      "float_vs_ordered_python_all_updates_max_ppm": 0.0,
+      "gas_metrics": [
+        {
+          "gas": "CO",
+          "float_vs_saved_max_ppm": 0.0009532411570489785,
+          "python_mae_ppm": 51.289383691083366,
+          "cpp_mae_ppm": 51.289381634114584,
+          "mae_delta_ppm": -2.056968781971591e-06,
+          "absolute_relative_mae_change": 4.0105156933854795e-08,
+          "python_rmse_ppm": 79.42550729974269,
+          "cpp_rmse_ppm": 79.42551125431864,
+          "passed": true
+        },
+        {
+          "gas": "ethylene",
+          "float_vs_saved_max_ppm": 3.689961603114966e-05,
+          "python_mae_ppm": 2.403073717748143,
+          "cpp_mae_ppm": 2.4030728916835784,
+          "mae_delta_ppm": -8.260645647517606e-07,
+          "absolute_relative_mae_change": 3.437533183650495e-07,
+          "python_rmse_ppm": 3.3173207907945925,
+          "cpp_rmse_ppm": 3.317320244194504,
+          "passed": true
+        }
+      ]
+    },
+    {
+      "period": "ethylene_CO_fold2",
+      "model": "current",
+      "targets": [
+        "CO",
+        "ethylene"
+      ],
+      "alpha": [
+        10.0,
+        0.1
+      ],
+      "test_updates": 6000,
+      "priming_updates": 10,
+      "saved_predictions_sha256": "7491e69b583fa1e1ca1157d35f85a72c6e29ae993e49f33d321e46798f712096",
+      "refit_vs_saved_max_ppm": 0.0,
+      "double_vs_saved_max_ppm": 1.1368683772161603e-12,
+      "double_vs_folded_all_updates_max_ppm": 1.0231815394945443e-12,
+      "float_vs_ordered_python_all_updates_max_ppm": 0.0,
+      "gas_metrics": [
+        {
+          "gas": "CO",
+          "float_vs_saved_max_ppm": 0.0006529510614541323,
+          "python_mae_ppm": 69.74510324878597,
+          "cpp_mae_ppm": 69.74513140808106,
+          "mae_delta_ppm": 2.8159295098362236e-05,
+          "absolute_relative_mae_change": 4.037458371509744e-07,
+          "python_rmse_ppm": 111.2410632000189,
+          "cpp_rmse_ppm": 111.24107535885173,
+          "passed": true
+        },
+        {
+          "gas": "ethylene",
+          "float_vs_saved_max_ppm": 3.528184412893154e-05,
+          "python_mae_ppm": 1.9589362072044145,
+          "cpp_mae_ppm": 1.958936282075246,
+          "mae_delta_ppm": 7.487083153456808e-08,
+          "absolute_relative_mae_change": 3.822014788394553e-08,
+          "python_rmse_ppm": 3.1999377191355123,
+          "cpp_rmse_ppm": 3.199937585626473,
+          "passed": true
+        }
+      ]
+    },
+    {
+      "period": "ethylene_CO_fold3",
+      "model": "current",
+      "targets": [
+        "CO",
+        "ethylene"
+      ],
+      "alpha": [
+        100.0,
+        10.0
+      ],
+      "test_updates": 6000,
+      "priming_updates": 10,
+      "saved_predictions_sha256": "c904f739eab66d6fa9f774c32b0a77a79f760554e50c0b92a62ce3dc7d26adf4",
+      "refit_vs_saved_max_ppm": 0.0,
+      "double_vs_saved_max_ppm": 8.526512829121202e-13,
+      "double_vs_folded_all_updates_max_ppm": 8.242295734817162e-13,
+      "float_vs_ordered_python_all_updates_max_ppm": 0.0,
+      "gas_metrics": [
+        {
+          "gas": "CO",
+          "float_vs_saved_max_ppm": 0.0004471502049625542,
+          "python_mae_ppm": 44.036104344096536,
+          "cpp_mae_ppm": 44.03610189208984,
+          "mae_delta_ppm": -2.4520066972399945e-06,
+          "absolute_relative_mae_change": 5.568173510717711e-08,
+          "python_rmse_ppm": 71.6031936003894,
+          "cpp_rmse_ppm": 71.60319682475408,
+          "passed": true
+        },
+        {
+          "gas": "ethylene",
+          "float_vs_saved_max_ppm": 2.0559539152031903e-05,
+          "python_mae_ppm": 2.236393194587626,
+          "cpp_mae_ppm": 2.236393417404493,
+          "mae_delta_ppm": 2.2281686673508716e-07,
+          "absolute_relative_mae_change": 9.963224144767302e-08,
+          "python_rmse_ppm": 3.1618980193071056,
+          "cpp_rmse_ppm": 3.161898223854501,
+          "passed": true
+        }
+      ]
+    },
+    {
+      "period": "ethylene_CO_fold1",
+      "model": "lags_10s",
+      "targets": [
+        "CO",
+        "ethylene"
+      ],
+      "alpha": [
+        10.0,
+        0.1
+      ],
+      "test_updates": 6000,
+      "priming_updates": 10,
+      "saved_predictions_sha256": "4e9de18be04ce90e8eea822d5ca47544e5a264a990f14bb0e5882615e74779b7",
+      "refit_vs_saved_max_ppm": 0.0,
+      "double_vs_saved_max_ppm": 3.410605131648481e-12,
+      "double_vs_folded_all_updates_max_ppm": 3.751665644813329e-12,
+      "float_vs_ordered_python_all_updates_max_ppm": 0.0,
+      "gas_metrics": [
+        {
+          "gas": "CO",
+          "float_vs_saved_max_ppm": 0.001696560590403351,
+          "python_mae_ppm": 41.38036022603189,
+          "cpp_mae_ppm": 41.380356675542195,
+          "mae_delta_ppm": -3.5504896942484265e-06,
+          "absolute_relative_mae_change": 8.580132398206761e-08,
+          "python_rmse_ppm": 74.38207364801842,
+          "cpp_rmse_ppm": 74.38207955880728,
+          "passed": true
+        },
+        {
+          "gas": "ethylene",
+          "float_vs_saved_max_ppm": 0.0001042699151430071,
+          "python_mae_ppm": 2.2694838132594475,
+          "cpp_mae_ppm": 2.2694796049682298,
+          "mae_delta_ppm": -4.208291217722149e-06,
+          "absolute_relative_mae_change": 1.8542944404957766e-06,
+          "python_rmse_ppm": 3.17398971121226,
+          "cpp_rmse_ppm": 3.173986638898577,
+          "passed": true
+        }
+      ]
+    },
+    {
+      "period": "ethylene_CO_fold2",
+      "model": "lags_10s",
+      "targets": [
+        "CO",
+        "ethylene"
+      ],
+      "alpha": [
+        10.0,
+        0.1
+      ],
+      "test_updates": 6000,
+      "priming_updates": 10,
+      "saved_predictions_sha256": "7491e69b583fa1e1ca1157d35f85a72c6e29ae993e49f33d321e46798f712096",
+      "refit_vs_saved_max_ppm": 0.0,
+      "double_vs_saved_max_ppm": 3.979039320256561e-12,
+      "double_vs_folded_all_updates_max_ppm": 2.8776980798284058e-12,
+      "float_vs_ordered_python_all_updates_max_ppm": 0.0,
+      "gas_metrics": [
+        {
+          "gas": "CO",
+          "float_vs_saved_max_ppm": 0.0020728589109921813,
+          "python_mae_ppm": 60.15395514204078,
+          "cpp_mae_ppm": 60.15393700252533,
+          "mae_delta_ppm": -1.8139515447046506e-05,
+          "absolute_relative_mae_change": 3.015515007153544e-07,
+          "python_rmse_ppm": 107.09585633925151,
+          "cpp_rmse_ppm": 107.09586443788922,
+          "passed": true
+        },
+        {
+          "gas": "ethylene",
+          "float_vs_saved_max_ppm": 0.00010690804095325745,
+          "python_mae_ppm": 1.9412339553927431,
+          "cpp_mae_ppm": 1.9412333932288488,
+          "mae_delta_ppm": -5.621638943242857e-07,
+          "absolute_relative_mae_change": 2.8959100615492316e-07,
+          "python_rmse_ppm": 3.0393636929760346,
+          "cpp_rmse_ppm": 3.0393641201317574,
+          "passed": true
+        }
+      ]
+    },
+    {
+      "period": "ethylene_CO_fold3",
+      "model": "lags_10s",
+      "targets": [
+        "CO",
+        "ethylene"
+      ],
+      "alpha": [
+        10.0,
+        0.1
+      ],
+      "test_updates": 6000,
+      "priming_updates": 10,
+      "saved_predictions_sha256": "c904f739eab66d6fa9f774c32b0a77a79f760554e50c0b92a62ce3dc7d26adf4",
+      "refit_vs_saved_max_ppm": 0.0,
+      "double_vs_saved_max_ppm": 3.808509063674137e-12,
+      "double_vs_folded_all_updates_max_ppm": 3.410605131648481e-12,
+      "float_vs_ordered_python_all_updates_max_ppm": 0.0,
+      "gas_metrics": [
+        {
+          "gas": "CO",
+          "float_vs_saved_max_ppm": 0.002137048331405822,
+          "python_mae_ppm": 42.89424467243747,
+          "cpp_mae_ppm": 42.89428127474467,
+          "mae_delta_ppm": 3.6602307197597383e-05,
+          "absolute_relative_mae_change": 8.533151120182075e-07,
+          "python_rmse_ppm": 70.6260252100484,
+          "cpp_rmse_ppm": 70.62605095058113,
+          "passed": true
+        },
+        {
+          "gas": "ethylene",
+          "float_vs_saved_max_ppm": 0.00012427313119189876,
+          "python_mae_ppm": 1.9957943752187266,
+          "cpp_mae_ppm": 1.9957980803263187,
+          "mae_delta_ppm": 3.7051075920668808e-06,
+          "absolute_relative_mae_change": 1.856457578031216e-06,
+          "python_rmse_ppm": 2.943244650567367,
+          "cpp_rmse_ppm": 2.9432468427027567,
+          "passed": true
+        }
+      ]
+    },
+    {
+      "period": "ethylene_methane_fold1",
+      "model": "current",
+      "targets": [
+        "methane",
+        "ethylene"
+      ],
+      "alpha": [
+        1.0,
+        1.0
+      ],
+      "test_updates": 6000,
+      "priming_updates": 10,
+      "saved_predictions_sha256": "9bdff83ead522222aae700ea2ea5107dd903c8c69f088197414fc92d866bbc98",
+      "refit_vs_saved_max_ppm": 0.0,
+      "double_vs_saved_max_ppm": 1.2505552149377763e-12,
+      "double_vs_folded_all_updates_max_ppm": 1.2789769243681803e-12,
+      "float_vs_ordered_python_all_updates_max_ppm": 0.0,
+      "gas_metrics": [
+        {
+          "gas": "methane",
+          "float_vs_saved_max_ppm": 0.000700392265500227,
+          "python_mae_ppm": 24.57693547049039,
+          "cpp_mae_ppm": 24.576943061421712,
+          "mae_delta_ppm": 7.59093132174371e-06,
+          "absolute_relative_mae_change": 3.0886402948236433e-07,
+          "python_rmse_ppm": 51.112482043640796,
+          "cpp_rmse_ppm": 51.112488901863465,
+          "passed": true
+        },
+        {
+          "gas": "ethylene",
+          "float_vs_saved_max_ppm": 3.94341866947201e-05,
+          "python_mae_ppm": 2.304291815961731,
+          "cpp_mae_ppm": 2.304291489426295,
+          "mae_delta_ppm": -3.265354360237893e-07,
+          "absolute_relative_mae_change": 1.4170750152471674e-07,
+          "python_rmse_ppm": 3.5048089404681417,
+          "cpp_rmse_ppm": 3.504808698614792,
+          "passed": true
+        }
+      ]
+    },
+    {
+      "period": "ethylene_methane_fold2",
+      "model": "current",
+      "targets": [
+        "methane",
+        "ethylene"
+      ],
+      "alpha": [
+        10.0,
+        0.1
+      ],
+      "test_updates": 6000,
+      "priming_updates": 10,
+      "saved_predictions_sha256": "4f08496d2b3afac58cce343747c61cf2171fa5a5efb841a05dee05b3c4770a7c",
+      "refit_vs_saved_max_ppm": 0.0,
+      "double_vs_saved_max_ppm": 5.826450433232822e-13,
+      "double_vs_folded_all_updates_max_ppm": 5.684341886080801e-13,
+      "float_vs_ordered_python_all_updates_max_ppm": 0.0,
+      "gas_metrics": [
+        {
+          "gas": "methane",
+          "float_vs_saved_max_ppm": 0.0003344298917085098,
+          "python_mae_ppm": 24.29354631791684,
+          "cpp_mae_ppm": 24.293544376500446,
+          "mae_delta_ppm": -1.9414163929809547e-06,
+          "absolute_relative_mae_change": 7.991490281306243e-08,
+          "python_rmse_ppm": 43.802974068149645,
+          "cpp_rmse_ppm": 43.802973420722566,
+          "passed": true
+        },
+        {
+          "gas": "ethylene",
+          "float_vs_saved_max_ppm": 4.638624125696822e-05,
+          "python_mae_ppm": 1.9541523767418651,
+          "cpp_mae_ppm": 1.9541511953512825,
+          "mae_delta_ppm": -1.181390582694064e-06,
+          "absolute_relative_mae_change": 6.045539727376749e-07,
+          "python_rmse_ppm": 3.2382299849125005,
+          "cpp_rmse_ppm": 3.2382295909118235,
+          "passed": true
+        }
+      ]
+    },
+    {
+      "period": "ethylene_methane_fold3",
+      "model": "current",
+      "targets": [
+        "methane",
+        "ethylene"
+      ],
+      "alpha": [
+        0.1,
+        1.0
+      ],
+      "test_updates": 6000,
+      "priming_updates": 10,
+      "saved_predictions_sha256": "72f0c429a07d44f493179e9b08ed647db2501547aeed788509c504b7ca0d2b37",
+      "refit_vs_saved_max_ppm": 0.0,
+      "double_vs_saved_max_ppm": 1.5489831639570184e-12,
+      "double_vs_folded_all_updates_max_ppm": 1.9326762412674725e-12,
+      "float_vs_ordered_python_all_updates_max_ppm": 0.0,
+      "gas_metrics": [
+        {
+          "gas": "methane",
+          "float_vs_saved_max_ppm": 0.0008131446698627087,
+          "python_mae_ppm": 17.01777371060618,
+          "cpp_mae_ppm": 17.017788508402507,
+          "mae_delta_ppm": 1.4797796328736013e-05,
+          "absolute_relative_mae_change": 8.695494828159229e-07,
+          "python_rmse_ppm": 32.02002576427408,
+          "cpp_rmse_ppm": 32.020038838664846,
+          "passed": true
+        },
+        {
+          "gas": "ethylene",
+          "float_vs_saved_max_ppm": 3.722732737720946e-05,
+          "python_mae_ppm": 2.2113287271926443,
+          "cpp_mae_ppm": 2.211329003264109,
+          "mae_delta_ppm": 2.760714647997986e-07,
+          "absolute_relative_mae_change": 1.2484415428830456e-07,
+          "python_rmse_ppm": 3.5672145093437604,
+          "cpp_rmse_ppm": 3.567214534401487,
+          "passed": true
+        }
+      ]
+    },
+    {
+      "period": "ethylene_methane_fold1",
+      "model": "lags_10s",
+      "targets": [
+        "methane",
+        "ethylene"
+      ],
+      "alpha": [
+        100.0,
+        10.0
+      ],
+      "test_updates": 6000,
+      "priming_updates": 10,
+      "saved_predictions_sha256": "9bdff83ead522222aae700ea2ea5107dd903c8c69f088197414fc92d866bbc98",
+      "refit_vs_saved_max_ppm": 0.0,
+      "double_vs_saved_max_ppm": 1.1652900866465643e-12,
+      "double_vs_folded_all_updates_max_ppm": 5.968558980384842e-13,
+      "float_vs_ordered_python_all_updates_max_ppm": 0.0,
+      "gas_metrics": [
+        {
+          "gas": "methane",
+          "float_vs_saved_max_ppm": 0.0004563004222291056,
+          "python_mae_ppm": 23.203367097276583,
+          "cpp_mae_ppm": 23.203366449708938,
+          "mae_delta_ppm": -6.475676457284862e-07,
+          "absolute_relative_mae_change": 2.7908348086450448e-08,
+          "python_rmse_ppm": 50.20587863511022,
+          "cpp_rmse_ppm": 50.20588375373208,
+          "passed": true
+        },
+        {
+          "gas": "ethylene",
+          "float_vs_saved_max_ppm": 0.00011377043763616257,
+          "python_mae_ppm": 2.137583372885062,
+          "cpp_mae_ppm": 2.137583296866417,
+          "mae_delta_ppm": -7.601864515649481e-08,
+          "absolute_relative_mae_change": 3.5562891310243334e-08,
+          "python_rmse_ppm": 3.3057169481446147,
+          "cpp_rmse_ppm": 3.3057168836325754,
+          "passed": true
+        }
+      ]
+    },
+    {
+      "period": "ethylene_methane_fold2",
+      "model": "lags_10s",
+      "targets": [
+        "methane",
+        "ethylene"
+      ],
+      "alpha": [
+        10.0,
+        0.1
+      ],
+      "test_updates": 6000,
+      "priming_updates": 10,
+      "saved_predictions_sha256": "4f08496d2b3afac58cce343747c61cf2171fa5a5efb841a05dee05b3c4770a7c",
+      "refit_vs_saved_max_ppm": 0.0,
+      "double_vs_saved_max_ppm": 1.9895196601282805e-12,
+      "double_vs_folded_all_updates_max_ppm": 1.4210854715202004e-12,
+      "float_vs_ordered_python_all_updates_max_ppm": 0.0,
+      "gas_metrics": [
+        {
+          "gas": "methane",
+          "float_vs_saved_max_ppm": 0.0008789709096390652,
+          "python_mae_ppm": 21.25618530448259,
+          "cpp_mae_ppm": 21.25619226339976,
+          "mae_delta_ppm": 6.958917172283918e-06,
+          "absolute_relative_mae_change": 3.2738316271717834e-07,
+          "python_rmse_ppm": 41.73135530520776,
+          "cpp_rmse_ppm": 41.73135534087171,
+          "passed": true
+        },
+        {
+          "gas": "ethylene",
+          "float_vs_saved_max_ppm": 0.00015461802145821935,
+          "python_mae_ppm": 1.859936103220624,
+          "cpp_mae_ppm": 1.8599399817649525,
+          "mae_delta_ppm": 3.878544328372868e-06,
+          "absolute_relative_mae_change": 2.0853105231179e-06,
+          "python_rmse_ppm": 3.0498575258946534,
+          "cpp_rmse_ppm": 3.0498586229285203,
+          "passed": true
+        }
+      ]
+    },
+    {
+      "period": "ethylene_methane_fold3",
+      "model": "lags_10s",
+      "targets": [
+        "methane",
+        "ethylene"
+      ],
+      "alpha": [
+        0.1,
+        1.0
+      ],
+      "test_updates": 6000,
+      "priming_updates": 10,
+      "saved_predictions_sha256": "72f0c429a07d44f493179e9b08ed647db2501547aeed788509c504b7ca0d2b37",
+      "refit_vs_saved_max_ppm": 0.0,
+      "double_vs_saved_max_ppm": 2.4442670110147446e-12,
+      "double_vs_folded_all_updates_max_ppm": 1.7763568394002505e-12,
+      "float_vs_ordered_python_all_updates_max_ppm": 0.0,
+      "gas_metrics": [
+        {
+          "gas": "methane",
+          "float_vs_saved_max_ppm": 0.0011011746822191526,
+          "python_mae_ppm": 15.943951582155806,
+          "cpp_mae_ppm": 15.94395289466858,
+          "mae_delta_ppm": 1.3125127740210019e-06,
+          "absolute_relative_mae_change": 8.232041895372684e-08,
+          "python_rmse_ppm": 29.479660893740604,
+          "cpp_rmse_ppm": 29.479665004472988,
+          "passed": true
+        },
+        {
+          "gas": "ethylene",
+          "float_vs_saved_max_ppm": 0.00014427917268022838,
+          "python_mae_ppm": 2.0190395566084263,
+          "cpp_mae_ppm": 2.019039764674505,
+          "mae_delta_ppm": 2.0806607858858683e-07,
+          "absolute_relative_mae_change": 1.0305200703353e-07,
+          "python_rmse_ppm": 3.3423956714993968,
+          "cpp_rmse_ppm": 3.3423955266374046,
+          "passed": true
+        }
+      ]
+    }
+  ],
+  "failures": [],
+  "total_test_updates": 72000,
+  "total_test_estimates": 144000,
+  "build_command_paths": "Local paths replaced with portable examples for publication."
+}
