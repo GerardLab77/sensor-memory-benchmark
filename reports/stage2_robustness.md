@@ -1,16 +1,15 @@
-# Stage 2: chronological robustness of sensor history
+# Stage 2: testing history across periods and mixtures
 
 Completed 5 November 2026. **Short sparse histories help consistently in this
 evaluation; more history does not consistently help.** Ten-second sparse lags
 lower both MAE and RMSE for each gas in all three periods of both mixtures.
-This supports a further controlled representation experiment, not a new sensing
-method, a neural-network requirement, or readiness for embedded deployment.
+This report covers the Stage 2 experiment. Later work and the next steps are
+listed in the [README](../README.md).
 
-## Audit of the exploratory pipeline
+## Checking the first experiment
 
 The original `benchmark.py`, `results/metrics.json`, prediction arrays and figure
-are preserved from commit `26706fa`. Its reported metrics were independently
-recomputed from the saved predictions and agree. It evaluated CO/ethylene only,
+are preserved from commit `26706fa`. Recomputing the errors from the saved predictions gives the same results. It evaluated CO/ethylene only,
 using every 100th raw row, causal previous-observation resampling at the observed
 1-second median interval, one 60/20/20 split, 600-sample gaps, and 600-sample
 initial warm-up. Train/validation/test grid indices were 600–25251,
@@ -24,25 +23,23 @@ initial warm-up. Train/validation/test grid indices were 600–25251,
 | Lag alignment | Original lags were correctly backward aligned. Stage 2 explicitly fixes offsets to [0,1,2,5,10], [0,1,7,15,30], [0,1,30,60,120] seconds. Five sampled sensor vectors, not a complete dense history. |
 | Summary state | Original causal state carried across all boundaries; this is valid online state, not independent resets. Its weights 1/(tau+1) implied effective e-folding times about 5.485, 30.497 and 120.499 s at 1 Hz. Stage 2 uses exact 5/30/120 s constants with weight 1-exp(-1/tau). |
 | Scaling/coefficients | Original fit these on training only, correctly. Stage 2 retains this and does not refit on train+validation or clip negative predictions. |
-| Regularisation | Original shared alpha minimised mean validation MAE in ppm across targets, allowing CO's larger error scale to dominate. Stage 2 tunes alpha separately per gas using the same grid [0.1,1,10,100]. This changes the estimand but avoids cross-gas weighting. |
+| Regularisation | Original shared alpha minimised mean validation MAE in ppm across targets, allowing CO's larger error scale to dominate. Stage 2 tunes alpha separately per gas using the same grid [0.1,1,10,100]. This lets each gas have its own regularisation strength. |
 | Comparison/inference | Original timestamps were matched across models, correctly. One split cannot establish period/mixture robustness. Stage 2 matches all partitions across models and reports each gas/fold separately. |
 
 No future-reading leakage was found in the original feature construction. The
 material weaknesses were limited coverage, stride-only raw validation and shared
 cross-gas regularisation selection. Stage 2 changes sampling, EWMA decay, tuning
 and splits simultaneously: the new numbers cannot isolate which correction
-caused any difference from the original. It does not retrospectively invalidate
-the original descriptive comparison.
+caused any difference from the original. The original results are kept for comparison.
 
-## Fixed evaluation and execution record
+## How the experiment was run
 
 The [protocol](stage2_protocol.md) and [configuration](../stage2_config.json) were
 committed at `7306996` before new model evaluation. The first preflight at
 `546af54` stopped on raw timestamp ties, before any fitting. Its config/environment
 are preserved in `results/stage2_attempt01_preflight`. The documented tie-handling
-amendment and regression test were committed at `c96543c`, before the one completed
-scientific run. No models, candidates, windows or plots were selected in response
-to test errors. A synthetic timestamp test also caught floating-point cancellation
+amendment and regression test were committed at `c96543c`, before the completed evaluation. The model choices and test windows followed
+the saved configuration. A synthetic timestamp test also caught floating-point cancellation
 before real-data fitting; elapsed grid values are constructed directly from indices.
 
 Both recordings were validated before any fitting. Every gas varied in every
@@ -58,7 +55,7 @@ Time is relative to the first raw timestamp (0 s for both). Intervals include th
 start and exclude the end. Initial warm-up and each excluded gap are 600 s.
 The stream's sensor-only state carries through warm-up, gaps and boundaries.
 At 600 s, the longest EWMA retains exp(-5), about 0.67%, of its initial-condition
-weight; infinite EWMA support is not claimed to be purged. Lag features have
+weight, so the warm-up reduces rather than removes the effect of initialisation. Lag features have
 full observed history by training start. There are no target histories in inputs.
 Scalers and coefficients use training only; validation MAE selects each gas's
 alpha (first candidate on ties); the fitted model then predicts test unchanged.
@@ -68,9 +65,8 @@ observations, matching a rolling-origin use case. This is causal within each fol
 but the folds are dependent. Moreover the original CO results already exposed
 part of Stage 2's final period: Stage 2 is not a wholly untouched confirmation set.
 There is one recording per mixture, not independent repeated laboratory trials.
-No significance tests, independent-fold confidence intervals or pooled-gas score
-are appropriate here. The final ~1,600–1,900 seconds are deliberately outside the
-fixed test windows, not removed in response to results.
+Results are reported separately for each gas and period. The fixed test windows
+leave the final roughly 1,600–1,900 seconds of each recording unused.
 
 The archive SHA256 is
 `8b6323b801363e11343ba1a5a7718e76666b715e753b3a40dbdfd1838d953fe7`,
@@ -120,8 +116,7 @@ A zero baseline produces a null percentage and `zero_baseline` status (including
   decreases by 19.32%, 13.75% and 2.59% with 10-second lags. Methane decreases by
   5.59%, 12.50% and 6.31%. Ethylene in the CO mixture decreases by 5.56%, 0.90%
   and 10.76%; ethylene in the methane mixture by 7.23%, 4.82% and 8.70%. RMSE
-  also decreases in each corresponding period. These are descriptive paired
-  results, not twelve independent replications or a universal guarantee.
+  also decreases in each corresponding period. The comparisons use the same timestamps for each model.
 - **Useful history length varies.** For CO, 10-second lags have the lowest MAE
   in folds 1 and 2; 30-second lags in fold 3. Extending sparse CO lags from 30 to
   120 seconds worsens MAE in every fold. For methane, 120-second lags have lower
@@ -131,18 +126,16 @@ A zero baseline produces a null percentage and `zero_baseline` status (including
   120-second model increases ethylene MAE by 6.20% and 7.30% in CO folds 1 and 2,
   and by 1.00% in methane fold 2. CO fold 3 RMSE increases by 0.011% (0.008 ppm),
   a tiny descriptive deterioration. The 30-second model's ethylene MAE increases
-  by 0.018% in CO fold 1 and 0.117% in methane fold 2. These tiny changes should
-  not be treated as meaningful proof of inferiority.
-- **Summaries are competitive, without a formal equivalence claim.** Methane
+  by 0.018% in CO fold 1 and 0.117% in methane fold 2. The smallest differences are negligible at the reported error scale.
+- **The averages work well too.** Methane
   MAE improvements are 8.55%, 22.12% and 17.31%; summaries beat every lag model
   there. They also give the lowest ethylene MAE in CO fold 3 (1.911 ppm), but
   increase ethylene MAE by 1.97% in methane fold 2. CO summary MAE is worse than
   10-second lags in every fold. Summary RMSE improves over current in every
-  gas/period, yet summaries are not uniformly best. No equivalence margin was
-  defined, so “comparable” means similar practical error scale and mixed rankings.
+  gas/period, yet summaries are not uniformly best. The choice depends on the gas and error metric.
 
 The lag models vary **offset placement and span together**, retaining five sensor
-vectors each. Thus this is not a pure dose-response experiment in history length.
+vectors each. Both the spacing and the total history length change between these models.
 The summaries also contain all three time constants together: this evaluation
 does not identify an individually optimal EWMA constant.
 
@@ -163,7 +156,7 @@ Some important differences are visible without fitting an explanatory model:
 - Ethylene test means in the CO recording are 7.29, 3.49 and 6.83 ppm; in the
   methane recording they are 5.44, 2.99 and 6.19 ppm. Ranges alone hide these shifts.
   In methane fold 1, validation/test ethylene reaches 20 ppm although training
-  reaches only 18.33 ppm. This is an observed extrapolation challenge, not leakage.
+  reaches only 18.33 ppm. The model therefore has to predict beyond the ethylene levels seen in training.
 
 ![Predetermined representative predictions](../results/stage2/predictions.png)
 
@@ -174,8 +167,8 @@ cross-response/offset errors; it is not representative of every target level.
 All six full-period prediction arrays are retained for inspection. Predictions
 can be negative because no clipping was introduced after evaluation.
 
-**Hypotheses, not demonstrated mechanisms:** dynamic sensor response, delivery
-delays and mixture cross-sensitivity could make recent history useful. Correlated
+Dynamic sensor response, delivery delays and mixture cross-sensitivity are
+possible reasons why recent history helps. Correlated
 lag features, changing exposure schedules and regularisation may explain why
 longer sparse spans sometimes hurt. Distribution summaries are consistent with
 period differences but do not establish their cause. Errors around transitions
@@ -193,14 +186,11 @@ temporaries and precision matter. The offline implementation materialises featur
 matrices and is not an embedded implementation. No latency, energy, Arm or SIMD
 measurement was performed.
 
-The evidence is sufficient to justify a **new, preregistered experiment** comparing
-dense/pooled history and a compact nonlinear baseline against these ridge models,
-with transition-aware metrics and fresh recordings or acquisition regimes where
-possible. Keep summaries and short lags as strong controls. Do not claim that
-long memory or an RNN is required, or promote the observed best model without new
-validation. No such next-stage model or deployment has been implemented here.
+At this stage, the next questions were whether denser history or a small nonlinear
+model would help, especially around setpoint changes, and how much memory the
+streaming versions would need. The README tracks the work since this experiment.
 
-## Reproduction, checks and interview explanation
+## Running the experiment and tests
 
 After installing [requirements-stage2.lock.txt](../requirements-stage2.lock.txt),
 run from the repository root:
@@ -222,28 +212,9 @@ All **13 tests passed** after completion; the saved log is
 prediction figures were visually inspected. One preflight failed and one full
 evaluation completed; the latter was not rerun to seek different results.
 
-For an interview, explain **why** a delayed sensor may benefit from past readings,
-how a causal chronological evaluation avoids using future information, and why
-validation rather than test selects alpha. Be ready to distinguish five sparse
-lags from a dense buffer, set points from measured local concentration, and
-descriptive consistency from statistical significance. The strongest defensible
-finding is consistent short-history improvement in these two recordings, with
-mixed longer-history and summary tradeoffs. Explain the duplicate-timestamp
-audit and the original shared-alpha limitation. Code was developed with AI
-assistance; understand and be able to explain those decisions yourself.
-
-The completed scope justifies this more specific CV bullet (no existing CV file
-was supplied or edited):
-
-> Built and audited a reproducible gas-sensor benchmark across two UCI mixtures
-> and three chronological test periods per mixture, showing consistent per-gas
-> error reductions with 10-second sparse histories while documenting mixed
-> benefits from longer histories and temporal summaries.
-
 ## Sources
 
 - [UCI 322 dataset documentation](https://archive.ics.uci.edu/dataset/322/gas+sensor+array+under+dynamic+gas+mixtures),
   DOI 10.24432/C5WP4C: column meanings and recording identities. Consult UCI for
   applicable data-use terms; this repository does not relicense or redistribute raw data.
-- [Fonollosa et al. (2015)](https://doi.org/10.1016/j.snb.2015.03.028): established
-  prior work on dynamic chemosensor estimation. This benchmark does not claim novelty.
+- [Fonollosa et al. (2015)](https://doi.org/10.1016/j.snb.2015.03.028): the paper associated with this dataset.

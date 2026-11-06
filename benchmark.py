@@ -1,4 +1,4 @@
-"""Causal gas-sensor history baseline. No neural network or hardware claims."""
+"""Gas-sensor regression baselines using current readings and sensor history."""
 import argparse, hashlib, json, platform, time, zipfile
 from pathlib import Path
 import numpy as np
